@@ -1,0 +1,58 @@
+﻿@model CsharpMVCPooja.Models.PaginationSearchModel
+<form method="get" asp-action="GetSearchPage1"  >
+    Name:<input type="text" asp-for="studentname" />
+    Phone number:<input type="text" asp-for="phonenumber" />
+    Course:           <select asp-for="courseid">
+        <option value="1">Python Tkinter</option>
+        <option value="2">Python Django</option>
+        <option value="3">Asp.net Core Razor Page</option>
+
+        <option value="4">Asp.net Core MVC</option>
+        <option value="5">Angular</option>
+        <option value="6">Angular with Web Ap</option>
+
+    </select>
+    <input type="submit" value="Search"/>
+    
+    @{ if (Model.lstsearchresult != null)
+        {
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Phone number</th>
+                        <th>Course name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{ foreach (var item in Model.lstsearchresult)
+                        {
+
+
+                            <tr>
+                                <td>@item.studentname</td>
+                                <td>@item.phonenumber</td>
+                                <td>@item.coursename</td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        } }
+    @if (Model != null)
+    {
+        <div>
+            <ul class="pagination justify-content-center">
+                @for (var i = 1; i <= Model.totalpages; i++)
+                {
+                    <li style="background-color:#ffbb99" class="page-item @(i == Model.currentpage ? "active" : "")">
+                        <a asp-action="GetListForAnchor" asp-controller="Pagination" asp-route-currentPage="@i" asp-route-courseid="@(Model.courseid)"
+                           asp-route-studentname="@(Model.studentname)"
+                           asp-route-phonenumber="@(Model.phonenumber)"
+                           class="page-link">@i</a>
+                    </li>
+                }
+            </ul>
+        </div>
+    }
+</form>

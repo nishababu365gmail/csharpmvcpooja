@@ -1,0 +1,18 @@
+﻿@model CsharpMVCPooja.Models.skill
+
+
+@{
+    ViewData["Title"] = "Index1";
+}
+<form method="post">
+    <input type="button" id="btnAdd" value="Add" />
+    <div id="mytest">
+        <input type="text" asp-for="skillname" />
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Create" class="btn btn-primary" />
+    </div>
+    <input type="text" asp-for="allvalues" />
+    <input type="text" asp-for="alllevelvalues" />
+
+</form>

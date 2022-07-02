@@ -1,0 +1,22 @@
+﻿@model IEnumerable<CsharpMVCPooja.Models.SurangmaFeesDetails>
+
+@{
+
+
+    @foreach (var item in Model)
+    {
+<ul style="list-style:none">
+    <li style=" display:inline-block">
+        <span style="background-color: brown"> @item.PaymentId</span>
+    </li>
+    <li style=" display:inline-block">
+        <span style="background-color:blueviolet"> @item.FeesAmount</span>
+    </li>
+    <li style=" display:inline-block">
+        <span style="background-color:aqua">@item.PaymentDate</span>
+    </li>
+</ul>
+            }
+
+       
+    }

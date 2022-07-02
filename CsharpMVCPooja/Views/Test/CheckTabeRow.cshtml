@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewData["Title"] = "CheckTabeRow";
+    List<Employee> st = new List<Employee>();
+    st = (List<Employee>)ViewData["mydata"];
+    foreach (Employee item in st)
+    {
+        <p>@item.firstname</p>
+    }
+}
+
+<h1>CheckTabeRow</h1>
+

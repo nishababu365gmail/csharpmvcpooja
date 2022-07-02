@@ -1,0 +1,72 @@
+﻿@model CsharpMVCPooja.Models.FeesRemittanceViewModel
+<div class="row">
+    <div class="col-md-12">
+        <select id="surangmastudentid" class="select2" asp-items="ViewBag.StudentList">
+            <option value="0">Select Student</option>
+        </select>
+    </div>
+</div>
+
+<table>
+    <thead>
+        <tr>
+            <th>Course</th>
+            <th>Date</th>
+            <th>Amount</th>
+            <th>Total Fees</th>
+            <th>Paid Fees</th>
+            <th>Bal Fees</th>
+            <th>Add</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><select id="CourseId">
+                    <option value="0">Select Course</option>
+                </select></td>
+            <td><input type="date" asp-for="PayingDate" /></td>
+            <td><input type="number" asp-for="PayingAmount" class="input-smallsize" /></td>
+            <td><input type="number" asp-for="TotalFees" readonly class="input-smallsize" /></td>
+            <td><input type="number" asp-for="PaidFees" readonly class="input-smallsize" /></td>
+            <td><input type="number" asp-for="BalanceFees" readonly class="input-smallsize" /></td>
+            <td><input type="button" value="Add" id="btnAddFees" /></td>
+            <td><input type="hidden" asp-for="StudentCourseId" /></td>
+        </tr>
+    </tbody>
+</table>
+<table id="tblFeesTransactiondetails">
+    <thead>
+        <tr>
+            <th>
+                student
+            </th>
+            <th>
+                Course
+            </th>
+            <th>
+                Date
+            </th>
+            <th>
+                Remitted fees
+            </th>
+            <th>
+                Total fees
+            </th>
+            <th>
+                Paid fees
+            </th>
+            <th>
+                Balance fees
+            </th>
+            <th>
+                StCou
+            </th>
+            <th>
+                Edit
+            </th>
+        </tr>
+    </thead>
+    <tbody id="tbbodyfeesTransactiondetails"></tbody>
+</table>
+
+<td><input type="button" value="Save Fees" id="btnSaveFees" /></td>

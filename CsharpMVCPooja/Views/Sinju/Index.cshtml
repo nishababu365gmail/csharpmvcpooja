@@ -1,0 +1,91 @@
+﻿
+@model List<List<string>>
+<div class="bs-example">
+    <ul class="nav nav-tabs" id="myTab">
+        <li class="nav-item">
+            <a href="#sectionA" class="nav-link active" data-toggle="tab">Section A</a>
+        </li>
+        <li class="nav-item">
+            <a href="#sectionB" class="nav-link" data-toggle="tab">Section B</a>
+        </li>
+        <li class="nav-item">
+            <a href="#sectionC" class="nav-link" data-toggle="tab">Section C</a>
+        </li>
+    </ul>
+    <div class="tab-content">
+        <div id="sectionA" class="tab-pane fade show active">
+            <h3>Section A</h3>
+            <ul>
+                @{
+                    var x = Model[0];
+                    foreach (var item in x)
+                    {
+                        <li>@item</li>
+                    }
+                }
+
+            </ul>
+            <p>Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui. Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth.</p>
+            <ul class="pagination justify-content-center">
+                @for (var i = 1; i <= ViewBag.totalpages; i++)
+                {
+                    <li style="background-color:#ffbb99" class="page-item @(i == ViewBag.currentpage ? "active" : "")">
+                        <a asp-action="Index" asp-controller="Sinju"
+                           asp-route-currentPage="@i"
+                           class="page-link">@i</a>
+                    </li>
+                }
+            </ul>
+
+        </div>
+        <div id="sectionB" class="tab-pane fade">
+            <ul>
+                @{
+                    var y = Model[1];
+                    foreach (var item in y)
+                    {
+                        <li>@item</li>
+                    }
+                }
+
+            </ul>
+            <h3>Section B</h3>
+            <p>Vestibulum nec erat eu nulla rhoncus fringilla ut non neque. Vivamus nibh urna, ornare id gravida ut, mollis a magna. Aliquam porttitor condimentum nisi, eu viverra ipsum porta ut. Nam hendrerit bibendum turpis, sed molestie mi fermentum id. Aenean volutpat velit sem. Sed consequat ante in rutrum convallis. Nunc facilisis leo at faucibus adipiscing.</p>
+            <ul class="pagination justify-content-center">
+                @for (var i = 1; i <= ViewBag.totalpages; i++)
+                {
+                    <li style="background-color:#ffbb99" class="page-item @(i == ViewBag.currentpage ? "active" : "")">
+                        <a asp-action="Index" asp-controller="Sinju"
+                           asp-route-currentPage="@i"
+                           class="page-link">@i</a>
+                    </li>
+                }
+            </ul>
+
+        </div>
+        <div id="sectionC" class="tab-pane fade">
+            <h3>Section C</h3>
+            <ul>
+                @{ 
+                    var z= Model[2];
+                    foreach (var item in z)
+                    {
+                        <li>@item</li>
+                    }
+                }
+             
+            </ul>
+            <p>nisha babuVestibulum nec erat eu nulla rhoncus fringilla ut non neque. Vivamus nibh urna, ornare id gravida ut, mollis a magna. Aliquam porttitor condimentum nisi, eu viverra ipsum porta ut. Nam hendrerit bibendum turpis, sed molestie mi fermentum id. Aenean volutpat velit sem. Sed consequat ante in rutrum convallis. Nunc facilisis leo at faucibus adipiscing.</p>
+            <ul class="pagination justify-content-center">
+                @for (var i = 1; i <= ViewBag.totalpages; i++)
+                {
+                    <li style="background-color:#ffbb99" class="page-item @(i == ViewBag.currentpage ? "active" : "")">
+                        <a asp-action="Index" asp-controller="Sinju"
+                           asp-route-currentPage="@i"
+                           class="page-link">@i</a>
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+</div>

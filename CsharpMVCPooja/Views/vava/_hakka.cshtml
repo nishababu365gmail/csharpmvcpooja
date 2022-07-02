@@ -1,0 +1,28 @@
+﻿@model CsharpMVCPooja.Models.SearchViewModel
+    <table style="width:100%">
+        <thead></thead>
+        <tr>
+            <th>St Name</th>
+            <th>St Course</th>
+            <th>Total Fees</th>
+            <th> Fees Paid</th>
+            <th>Fees Due</th>
+            <th>View</th>
+        </tr>
+        @if (Model.FeesMasterDetails != null) { 
+        @foreach (var item in Model.FeesMasterDetails)
+        {
+    <tr>
+        <td> @item.StudentName</td>
+        <td>@item.CourseName</td>
+        <td>@item.FeesOriginal</td>
+        <td>@item.FeesPaid</td>
+        <td>@item.FeesDue</td>
+        <td><a class="btn btn-danger" asp-controller="vava" asp-action="SearchFeesDetails" asp-route-studentid=@item.StudentName asp-route-courseid=@item.CourseName>View</a></td>
+    </tr>
+        }
+        }
+    </table>
+    @*
+        For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+    *@

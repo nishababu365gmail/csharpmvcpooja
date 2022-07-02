@@ -1,0 +1,61 @@
+﻿@model CsharpMVCPooja.Models.NiastVazhiPadu
+
+<form method="post" >
+    <center>
+    <div id="items-containter">
+        <ul id="vazipadu-item-single">
+            <li class="vazipadu-item">
+
+                <input asp-for="name" placeholder="Name" id="txtName" type="text" />
+
+            </li>
+
+            <li class="vazipadu-item">
+                <select asp-for="starname" id="cmbstar">
+                    <option value="1">Aswathi</option>
+                    <option value="2">Bharani</option>
+                    <option value="3">Karthika</option>
+                </select>
+            </li>
+            <li class="vazipadu-item">
+                <select asp-for="vazhipaduname" id="cmbvazhipaduname">
+                    <option value="1">Guruthi</option>
+                    <option value="2">Appam</option>
+                    <option value="3">Kadumpayasam</option>
+                </select>
+            </li>
+            <li class="vazipadu-item"><input class="input-smallsize" placeholder="Price" id="txtprice" type="text" asp-for="prize" /></li>
+            <li class="vazipadu-item"><input class="input-smallsize" placeholder="Quantity" id="txtquantity" type="text"  asp-for="quantity"/></li>
+            <li class="vazipadu-item"><input class="input-smallsize" placeholder="Total" id="txttotalamount" type="text" asp-for="total" /></li>
+            <li class="vazipadu-item"><button class="input-smallsize" id="btnAdd">Add more</button></li>
+        </ul>
+    </div>
+    </center>
+    <center>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Star</th>
+                    <th>Vazhipadu</th>
+                    <th>Prize</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody id="item-container">
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="5">
+                        Total
+                    </td>
+
+                    <td style="align-items:center" id="mytotal"></td>
+                </tr>
+                    </tfoot>
+        </table>
+    </center>
+    <input type="submit" value="Save Value" id="btnSaveDb" />
+</form>
+@*<button class="input-smallsize" id="btnAdd">Add more</button>*@

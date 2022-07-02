@@ -1,0 +1,84 @@
+﻿@model CsharpMVCPooja.Models.SignupDto
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+
+<h4>SignupDto</h4>
+<hr />
+<div class="row" style="border:1px solid black ;margin-left:120px;width:400px;background-color:white; padding-right:0px">
+    @*/*display: flex; justify-content: center; align-items: center;*/*@
+    <div class="col-md-12">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            @*<div class="form-group">
+            <label asp-for="Signupid" class="control-label"></label>
+            <input asp-for="Signupid" class="form-control" />
+            <span asp-validation-for="Signupid" class="text-danger"></span>
+        </div>*@
+            <div class="row" style="display: flex; justify-content: center; align-items: center;">
+                <h5>Sign up to Hommies</h5>
+            </div>
+            <div class="row" style="display: flex; justify-content: center; align-items: center;">
+                <a class="btn btn-primary customBtn">Sign up with Google</a>
+            </div>
+            <div class="row">
+                <div class="col-md-4"><hr /></div>
+                <div  class="col-md-4" style="display: flex; justify-content: center; align-items: center;">Or</div>
+                <div class="col-md-4"><hr /></div>
+                @*<div class="col-md-3"><hr /></div>
+                <div class="col-md-3"></div>*@
+            </div>
+            <div class="row">
+                <div class="form-group col-md-6">
+                    <label asp-for="Firstname" class="control-label"></label>
+                    <input asp-for="Firstname" class="form-control input-signup" />
+                    <span asp-validation-for="Firstname" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-6">
+                    <label asp-for="Lastname" class="control-label"></label>
+                    <input asp-for="Lastname" class="form-control input-signup" />
+                    <span asp-validation-for="Lastname" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control input-signup" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password" class="control-label"></label>
+                <input asp-for="Password" class="form-control input-signup" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Reenterpassword" class="control-label"></label>
+                <input asp-for="Reenterpassword" class="form-control input-signup" />
+                <span asp-validation-for="Reenterpassword" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Termsandconditions" /> @Html.DisplayNameFor(model => model.Termsandconditions)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Subscriptions" /> @Html.DisplayNameFor(model => model.Subscriptions)
+                </label>
+            </div>
+            <div class="row " style="display: flex; justify-content: center; align-items: center;">
+                <div class="form-group">
+                    <input type="submit" value="Create Account" class="btn btn-danger" />
+                </div>
+            </div>
+        </form>
+    </div>
+
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

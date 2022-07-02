@@ -1,0 +1,43 @@
+﻿@model IEnumerable<CsharpMVCPooja.Models.SurangmaFeesHeader>
+
+@{ 
+    <table>
+        <thead>
+            <tr>
+                <td>
+                    Hide
+                </td>
+                <td>
+                    Student
+                </td>
+                <td>
+
+                    Course
+                </td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td><button id="@String.Concat(@item.StudentName.ToString(),"_",  @Html.Raw(HttpUtility.HtmlDecode(@item.CourseName.ToString())),"_btn")">+</button></td>
+                <td><font color="green">@item.StudentName</font></td>
+                <td>@item.CourseName</td>
+            </tr>
+            
+            <tr >
+                <td colspan="2">
+                   
+                    <table class="nr" style="display:none" id="@String.Concat(System.Web.HttpUtility.HtmlEncode(@item.StudentName.ToString()),"_", @Html.Raw(HttpUtility.HtmlDecode(@item.CourseName.ToString())))" >
+                        <tr>
+                            <td>
+                                <partial name="_partialSurangma" model="@item.FeesDetails" />
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+}

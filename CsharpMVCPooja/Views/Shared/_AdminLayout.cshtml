@@ -1,0 +1,162 @@
+﻿<!DOCTYPE html>
+ 
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - CsharpMVCPooja</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+    <link href="~/css/site.css" rel="stylesheet" />
+    <script>
+
+
+
+    function OnSubmit() {
+
+        //let ModelObject = { Name: $("#txtName").val(), Gender: $("#drpGender option:Selected").text(), Role: $("#drpRole option:Selected").text() }
+        let ModelObject = [
+            { Name: 'Nisha', Gender: 'Female', Role: 'lead' },
+            { Name: 'Babu', Gender: 'Male', Role: 'Sooper lead' }, ]
+        $.ajax({
+
+            type: "POST",
+
+            url: '@Url.Action("Nisha", "Home")',
+
+            data: JSON.stringify(ModelObject),
+
+            contentType: "application/json; charset=utf-8",
+
+            dataType: "json",
+
+            success: function (data) {
+
+                let output = data.map(i => "<tr><td>" + i.name + "</td><td>" + i.gender + "</td><td>" + i.role + "</td></tr>");
+
+                $("#output").html(output);
+
+            }
+
+        });
+
+    };
+
+    </script>
+</head>
+<body  >
+    @*@{ 
+        var name1 = "True";
+    }*@
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-toggleable-lg navbar-light bg-white border-bottom box-shadow mb-3">
+            @*<div class="container">*@
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">CsharpMVCPooja</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                    <ul class="navbar-nav flex-grow-1" disabled>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="VazhiPadu" asp-action="Create">Create Vazhipadu</a>
+                        </li>
+                        
+                        @*@{
+                            name1 = Context.Session.GetString("_Employee Create");
+                        }*@
+
+                        <li class="nav-item">
+
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Employee" asp-action="Create">Create</a>
+
+                        </li>
+                        <li class="nav-item">
+
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Employee" asp-action="Index">Employee index</a>
+
+                        </li>
+                        <li class="nav-item">
+
+                            <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Create">User Create</a>
+
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="vava" asp-action="SearchFeesMaster">Create Test</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="test" asp-action="index1">Create dynamic div</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Pagination" asp-action="GetSearchPage">Neethus Search</a>
+                        </li>
+
+
+                        <li>
+                            @* <input type="button" value="Submit" onclick="OnSubmit()" class="btn btn-primary py-2 px-4 text-white">*@
+                        </li>
+                    </ul>
+                </div>
+            @*</div>*@
+        </nav>
+    </header>
+    <div class="container" >
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2020 - CsharpMVCPooja - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+        @*<table class="table table-bordered">
+
+                <tr class="table-head">
+
+                    <th>Name</th>
+
+                    <th> Gender</th>
+
+                    <th> Role</th>
+
+                </tr>
+
+                <tbody id="output">
+
+            </table>*@
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ajax-unobtrusive/3.2.6/jquery.unobtrusive-ajax.min.js" integrity="sha512-DedNBWPF0hLGUPNbCYfj8qjlEnNE92Fqn7xd3Sscfu7ipy7Zu33unHdugqRD3c4Vj7/yLv+slqZhMls/4Oc7Zg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js" integrity="sha512-UdIMMlVx0HEynClOIFSyOrPggomfhBKJE28LKl8yR3ghkgugPnG6iLfRfHwushZl1MOPSY6TsuBDGPK2X4zYKg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js" integrity="sha512-EanukVTZc4W9tUCLnDl069Izidg49PcNRKO1upLzKt9ajq66i+bXOtlzXcIbRhb6vVEGF6BCc8wQi5T1ztCpTQ==" crossorigin="anonymous"></script>
+    @*<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>*@
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.1.0-beta.1/js/select2.min.js"
+            integrity="sha512-qiKM6FJbI5x5+GL5CEbAUK0suRhjXVMRXnH/XQJaaQ6iQPf05XxbFBE4jS6VJzPGIRg7xREZTrGJIZVk1MLclA=="
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.1.0-beta.1/css/select2.css"
+          integrity="sha512-HY6Y14pZLvNDBjCfqk5Eqye27vXJuWN4TuZCRNBNqstM/LivT2L+/H+7o91btB6HftjR9H75jQ2dnarEXThUig=="
+          crossorigin="anonymous" />
+
+    <script src="~/js/anju.js"></script>
+
+    @*<script>
+            $(function () {
+                $("#datepicker").datepicker();
+            });
+        </script>*@
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

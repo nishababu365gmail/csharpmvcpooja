@@ -1,0 +1,52 @@
+﻿
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+
+
+    <table id="choose-address-table" class="ui-widget ui-widget-content">
+        <thead>
+            <tr class="ui-widget-header ">
+                <th>Name/Nr.</th>
+                <th>Street</th>
+                <th>Town</th>
+                <th>Postcode</th>
+                <th>Country</th>
+                <th>Options</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="nr">
+                    <span>50</span>
+                </td>
+                <td>Some Street 1</td>
+                <td class="sc">Glasgow Nisha</td>
+                <td>G0 0XX</td>
+                <td>United Kingdom</td>
+                <td>
+                    @*<input type="submit" class="use-address" />*@
+                    <a class=" btn btn-danger  use-address" asp-area="" asp-controller="test" asp-action="CheckTabeRow">click</a>
+                   
+
+                </td>
+            </tr>
+            <tr>
+                <td class="nr">49</td>
+                <td>Some Street 2</td>
+                <td class="sc">Glasgow</td>
+                <td>G0 0XX</td>
+                <td>United Kingdom</td>
+                <td>
+                   @* <input type="submit" class="use-address" />*@
+                    <a class=" btn btn-danger  use-address" asp-area="" asp-controller="test" asp-action="CheckTabeRow">click</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+<div id="aleena">hhhhhhhh</div>
+<input type="button" id="btnlive" value="hello" />
+
+
